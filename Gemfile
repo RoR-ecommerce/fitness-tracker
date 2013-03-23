@@ -5,7 +5,6 @@ gem 'jquery-rails',   '2.2.1'
 
 gem 'pg',             '0.14.1'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -17,7 +16,6 @@ group :assets do
 
   gem 'uglifier',     '1.3.0'
 end
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
