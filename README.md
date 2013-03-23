@@ -1,5 +1,5 @@
-System Requirements
-===================
+Environment Requirements
+========================
 
 Ruby
 ----
@@ -31,3 +31,15 @@ Development and tests environments should have minimum requirements only.
 ```ruby
 gem 'rspec-rails', '~> 2.13.0'
 ```
+
+Testing
+=======
+
+Stack
+
+* RSpec
+* FactoryGirl
+* DatabaseCleaner
+* Capybara
+
+Install (PhantomJS)[https://github.com/jonleighton/poltergeist#installing-phantomjs]
