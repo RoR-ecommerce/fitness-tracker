@@ -42,16 +42,19 @@ RSpec.configure do |config|
 
   # Additional setup for
   # * DatabaseCleaner
+  # * Capybara
+  #
   config.before(:suite) do
-    if example.metadata[:js]
-      DatabaseCleaner.strategy = :truncation
-    else
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
-    end
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
+    if example.metadata[:js]
+      DatabaseCleaner.strategy = :deletion
+    else
+      DatabaseCleaner.strategy = :transaction
+    end
     DatabaseCleaner.start
   end
 
