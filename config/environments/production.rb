@@ -66,4 +66,6 @@ Tracker::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.action_mailer.default_url_options = { host: 'tracker.ufcfit.com' }
+
+  config.action_controller.action_on_unpermitted_parameters = :raise
 end
