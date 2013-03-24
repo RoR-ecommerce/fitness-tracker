@@ -43,7 +43,10 @@ RSpec.configure do |config|
   # Additional setup for
   # * DatabaseCleaner
   # * Capybara
+  # * Device
   #
+  config.include Devise::TestHelpers, type: :controller
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
