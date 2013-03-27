@@ -42,4 +42,4 @@ Stack
 * DatabaseCleaner
 * Capybara
 
-Install (PhantomJS)[https://github.com/jonleighton/poltergeist#installing-phantomjs]
+Install [PhantomJS](https://github.com/jonleighton/poltergeist#installing-phantomjs)
