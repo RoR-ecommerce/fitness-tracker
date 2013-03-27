@@ -6,6 +6,8 @@ gem 'strong_parameters',    '0.2.0'
 
 gem 'pg',                   '0.14.1'
 
+gem 'devise',               '2.2.3'
+
 group :development, :test do
   gem 'rspec-rails',        '~> 2.13.0'
   gem 'factory_girl_rails', '~> 4.2.1'
