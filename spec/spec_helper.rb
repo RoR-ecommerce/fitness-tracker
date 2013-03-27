@@ -43,14 +43,21 @@ RSpec.configure do |config|
   # Additional setup for
   # * DatabaseCleaner
   # * Capybara
+  # * Device
+  # * Warden
   #
+  config.include Devise::TestHelpers, type: :controller
+  config.include Warden::Test::Helpers, type: :feature
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
-    if example.metadata[:js]
+    if example.metadata[:type] == :feature
+      Warden.test_mode!
+
       DatabaseCleaner.strategy = :deletion
     else
       DatabaseCleaner.strategy = :transaction
@@ -60,5 +67,7 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+
+    Warden.test_reset! if example.metadata[:type] == :feature
   end
 end
