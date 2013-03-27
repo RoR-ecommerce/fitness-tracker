@@ -26,7 +26,8 @@ Always lock specific gems in production environment.
 gem 'rails', '3.2.13'
 ```
 
-Development and tests environments should have minimum requirements only.
+Development and test environments should have minimum requirements only if
+necessary.
 
 ```ruby
 gem 'rspec-rails', '~> 2.13.0'
