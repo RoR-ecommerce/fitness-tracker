@@ -5,9 +5,10 @@ describe 'Logout' do
     login_as FactoryGirl.create(:user)
 
     # any page with navigation that has logout
-    visit edit_user_registration_path
+    visit root_path
     click_link 'Logout'
 
-    expect(page).to have_text('Welcome aboard')
+    expect(page).to have_text('Signed out successfully.')
+    expect(page).to have_link('Login', { href: '/users/auth/ufc' })
   end
 end
