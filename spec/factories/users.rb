@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    email    'foo@bar.baz'
-    password 'secret_word'
+    sequence(:email) { |n| "email#{n}@factory.com" }
+    sequence(:uid)   { |n| "#{n}" }
+    provider 'ufc'
   end
 end

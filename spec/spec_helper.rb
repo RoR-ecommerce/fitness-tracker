@@ -63,10 +63,12 @@ RSpec.configure do |config|
       DatabaseCleaner.strategy = :transaction
     end
     DatabaseCleaner.start
+    OmniAuth.config.test_mode = true
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
+    OmniAuth.config.test_mode = false
 
     Warden.test_reset! if example.metadata[:type] == :feature
   end

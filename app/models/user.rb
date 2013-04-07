@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   validates :email,
     presence: true,
+    format: Devise.email_regexp,
     uniqueness: { case_sensitive: false }
 
   validates :provider,
