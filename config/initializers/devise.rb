@@ -216,8 +216,11 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   require 'omniauth-ufc'
 
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+
   config.omniauth :ufc, ENV['UFC_CLIENT_ID'], ENV['UFC_CLIENT_SECRET'],
-      :client_options => { site: ENV['UFC_OAUTH_SITE'] || "http://localhost:3001" }
+      :client_options => { site: ENV['UFC_OAUTH_SITE'] || "http://localhost:3001",
+                           ssl: { ca_file: '/usr/lib/ssl/certs/ca-certificates.crt' } }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
