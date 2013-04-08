@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby   '2.0.0'
 
+gem 'unicorn',              '4.6.2'
+
 gem 'rails',                '3.2.13'
 gem 'jquery-rails',         '2.2.1'
 gem 'strong_parameters',    '0.2.0'
