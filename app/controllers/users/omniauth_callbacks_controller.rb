@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  force_ssl only: :ufc
+  force_ssl
 
   def ufc
     @user = User.from_omniauth!(request.env["omniauth.auth"])
@@ -10,6 +10,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       redirect_to root_url
     end
+  end
+
+  def passthru
+    render file: "#{Rails.root}/public/404.html", status: 404, layout: false
   end
 
   protected
