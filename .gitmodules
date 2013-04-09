@@ -1,3 +1,0 @@
-[submodule "lib/gems/omniauth-ufc"]
-	path = lib/gems/omniauth-ufc
-	url = git@github.com:RoR-ecommerce/ufc-omniauth.git
