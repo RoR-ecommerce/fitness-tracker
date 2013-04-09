@@ -1,4 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  force_ssl
+
   def ufc
     @user = User.from_omniauth!(request.env["omniauth.auth"])
 
