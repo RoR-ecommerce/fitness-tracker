@@ -13,7 +13,7 @@ gem 'pg',                   '0.14.1'
 
 gem 'devise',               '2.2.3'
 gem 'omniauth',             '1.1.3', require: false
-gem 'omniauth-ufc',         path: 'lib/gems/omniauth-ufc', require: false
+gem 'omniauth-ufc',         git: "https://c7acc59ab24cd118fb6295255ce7806b61fb1ca4:x-oauth-basic@github.com/RoR-ecommerce/ufc-omniauth.git", require: false
 
 group :development, :test do
   gem 'rspec-rails',        '~> 2.13.0'
