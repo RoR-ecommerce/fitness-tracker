@@ -11,4 +11,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to root_url
     end
   end
+
+  protected
+
+  def after_omniauth_failure_path_for(scope)
+    root_path(scope)
+  end
 end
