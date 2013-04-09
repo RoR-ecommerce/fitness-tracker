@@ -10,8 +10,8 @@ gem 'strong_parameters',    '0.2.0'
 gem 'pg',                   '0.14.1'
 
 gem 'devise',               '2.2.3'
-gem 'omniauth',             '1.1.3'
-gem 'omniauth-ufc',         git: 'git@github.com:RoR-ecommerce/ufc-omniauth.git'
+gem 'omniauth',             '1.1.3', require: false
+gem 'omniauth-ufc',         path: 'lib/gems/omniauth-ufc', require: false
 
 group :development, :test do
   gem 'rspec-rails',        '~> 2.13.0'
