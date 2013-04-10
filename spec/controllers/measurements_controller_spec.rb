@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe WorkoutsController do
+describe MeasurementsController do
   before do
     sign_in FactoryGirl.create(:user)
-    @track = FactoryGirl.create(:track, :in_progress, program: FactoryGirl.create(:program_with_steps))
+    @track = FactoryGirl.create(:track, program: FactoryGirl.create(:program_with_steps))
   end
 
   describe "#create" do
     context "with success" do
       before do
-        post :create, track_id: @track.id, workout: {emotion: 3, intensity: 4, sweat: 5, notes: "something or other"}
+        post :create, track_id: @track.id, measurement: {chest: 1, arms: 2, waist: 3, hips: 4, thighs: 5, weight: 6}
       end
 
       it { response.should redirect_to @track }
@@ -17,7 +17,7 @@ describe WorkoutsController do
 
     context "failed" do
       before do
-        post :create, track_id: @track.id, workout: {emotion: nil, intensity: nil, sweat: nil}
+        post :create, track_id: @track.id, measurement: {chest: nil, arms: nil, waist: nil, hips: nil, thighs: nil, weight: nil}
       end
 
       it { response.should be_success }
