@@ -1,10 +1,7 @@
-User.destroy_all
-user = User.create! name: "Moses Song"
-
 Program.destroy_all
-program = Program.create! name: "UFC Workout Program"
+program = Program.create!(name: "UFC Workout Program")
 
-program.steps.create! [
+program.steps.create!([
   {name: "Take Measurements", step_class: "Measurement", day: 0, position: 1},
   {name: "Power Punch", step_class: "Workout", day: 1, position: 2},
   {name: "Cardio Cross Train", step_class: "Workout", day: 2, position: 3},
@@ -15,4 +12,4 @@ program.steps.create! [
   {name: "Cardio Cross Train", step_class: "Workout", day: 6, position: 8},
   {name: "Ultimate Stretch Flex", step_class: "Workout", day: 6, position: 9},
   {name: "Rest", step_class: "Rest", day: 7, position: 10},
-]
+])
