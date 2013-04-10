@@ -1,0 +1,9 @@
+%h1 Enter your measurements and upload photos
+= simple_form_for([@track, @track.next_step], :html => {:class => 'form-horizontal' }) do |f|
+  = f.input :chest
+  = f.input :arms
+  = f.input :waist
+  = f.input :hips
+  = f.input :thighs
+  = f.input :weight
+  = f.button :submit
