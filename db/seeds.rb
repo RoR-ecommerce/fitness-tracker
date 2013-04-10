@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.destroy_all
+user = User.create! name: "Moses Song"
+
+Program.destroy_all
+program = Program.create! name: "UFC Workout Program"
+
+program.steps.create! [
+  {name: "Take Measurements", step_class: "Measurement", day: 0, position: 1},
+  {name: "Power Punch", step_class: "Workout", day: 1, position: 2},
+  {name: "Cardio Cross Train", step_class: "Workout", day: 2, position: 3},
+  {name: "Ab Assassin", step_class: "Workout", day: 2, position: 4},
+  {name: "Power Pull", step_class: "Workout", day: 3, position: 5},
+  {name: "Fat Fighter", step_class: "Workout", day: 4, position: 6},
+  {name: "Power Punch", step_class: "Workout", day: 5, position: 7},
+  {name: "Cardio Cross Train", step_class: "Workout", day: 6, position: 8},
+  {name: "Ultimate Stretch Flex", step_class: "Workout", day: 6, position: 9},
+  {name: "Rest", step_class: "Rest", day: 7, position: 10},
+]
