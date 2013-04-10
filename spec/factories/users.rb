@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:email) { |n| "email#{n}@factory.com" }
-    sequence(:uid)   { |n| "#{n}" }
-    provider 'ufc'
+    email     { Faker::Internet.email }
+    uid       { SecureRandom.uuid }
+    provider  'ufc'
   end
 end
