@@ -15,6 +15,14 @@ gem 'devise',               '2.2.3'
 gem 'omniauth',             '1.1.3', require: false
 gem 'omniauth-ufc',         git: "https://c7acc59ab24cd118fb6295255ce7806b61fb1ca4:x-oauth-basic@github.com/RoR-ecommerce/ufc-omniauth.git", require: false
 
+gem 'acts_as_list',         '0.2.0'
+
+gem 'simple_form',          '2.1.0'
+gem 'bootstrap-sass',       '2.3.1.0'
+
+# Gems below are going away once we start working on app UI.
+gem 'haml'
+
 group :development, :test do
   gem 'rspec-rails',        '~> 2.13.0'
   gem 'factory_girl_rails', '~> 4.2.1'
