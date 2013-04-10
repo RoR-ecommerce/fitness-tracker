@@ -12,6 +12,6 @@ class Measurement < ActiveRecord::Base
   private
 
   def update_track
-    track.update_attribute :last_step_index, step.position - 1
+    track.update_attribute(:last_step_index, step.position - 1)
   end
 end

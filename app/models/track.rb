@@ -1,5 +1,4 @@
 class Track < ActiveRecord::Base
-
   belongs_to :program
   belongs_to :user
 
@@ -8,9 +7,6 @@ class Track < ActiveRecord::Base
 
   validates :user, :program,
     presence: true
-
-  # TODO Move to strong params in controller.
-  # attr_accessible :program_id
 
   def next_step
     @next_step ||= if next_step_index
@@ -38,5 +34,4 @@ class Track < ActiveRecord::Base
       last_step_index + 1
     end
   end
-
 end

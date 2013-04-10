@@ -5,16 +5,16 @@ class MeasurementsController < ApplicationController
     measurement = @track.next_step
     measurement.attributes = measurement_params
     if measurement.save
-      redirect_to @track
+      redirect_to(@track)
     else
-      render template: "tracks/show"
+      render(template: "tracks/show")
     end
   end
 
   private
 
   def set_track
-    @track = Track.find params[:track_id]
+    @track = Track.find(params[:track_id])
   end
 
   def measurement_params
