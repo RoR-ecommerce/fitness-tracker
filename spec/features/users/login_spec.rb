@@ -15,6 +15,5 @@ describe 'Login' do
     visit   user_omniauth_authorize_path(:ufc)
 
     expect(page).to have_text("Logged in as #{@user.email}")
-    expect(page).to have_text('Successfully authenticated from UFCFit account')
   end
 end

@@ -13,5 +13,9 @@ Tracker::Application.routes.draw do
     resources :workouts,     only: [ :create ]
   end
 
+  authenticated do
+    root to: 'application#route'
+  end
+
   root to: 'home#index'
 end
