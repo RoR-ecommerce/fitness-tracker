@@ -8,5 +8,10 @@ Tracker::Application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  resources :tracks, only: [ :new, :create, :show ] do
+    resources :measurements, only: [ :create ]
+    resources :workouts,     only: [ :create ]
+  end
+
   root to: 'home#index'
 end
