@@ -3,7 +3,7 @@ Airbrake.configure do |config|
   config.development_environments = %w(development test)
   config.rescue_rake_exceptions = true
 
-  Launchpad::Application.config.filter_parameters.each do |param|
+  Tracker::Application.config.filter_parameters.each do |param|
     config.params_filters << param.to_s
   end
 end
