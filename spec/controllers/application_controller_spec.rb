@@ -6,7 +6,7 @@ describe ApplicationController do
     context "when user logged out" do
       it "should redirect to root url" do
         get :route
-        response.should redirect_to root_url
+        expect(response).to redirect_to(root_url)
       end
     end
 
@@ -15,7 +15,7 @@ describe ApplicationController do
 
       it "should redirect to new track url" do
         get :route
-        response.should redirect_to new_track_url
+        expect(response).to redirect_to(new_track_url)
       end
     end
   end

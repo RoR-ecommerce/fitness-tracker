@@ -12,7 +12,7 @@ describe WorkoutsController do
         post :create, track_id: @track.id, workout: {emotion: 3, intensity: 4, sweat: 5, notes: "something or other"}
       end
 
-      it { response.should redirect_to @track }
+      it { expect(response).to redirect_to(@track) }
     end
 
     context "failed" do
@@ -20,9 +20,9 @@ describe WorkoutsController do
         post :create, track_id: @track.id, workout: {emotion: nil, intensity: nil, sweat: nil}
       end
 
-      it { response.should be_success }
-      it { response.should_not be_redirect }
-      it { response.should render_template("tracks/show")}
+      it { expect(response).to be_success }
+      it { expect(response).not_to be_redirect }
+      it { expect(response).to render_template("tracks/show")}
     end
   end
 end

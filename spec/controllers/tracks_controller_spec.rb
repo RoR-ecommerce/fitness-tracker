@@ -9,8 +9,8 @@ describe TracksController do
   describe "#new" do
     before { get :new }
 
-    it { response.should be_success }
-    it { response.should render_template("new") }
+    it { expect(response).to be_success }
+    it { expect(response).to render_template("new") }
   end
 
   describe "#create" do
@@ -18,7 +18,7 @@ describe TracksController do
       post :create, track: { program_id: FactoryGirl.create(:program).id }
     end
 
-    it { response.should redirect_to assigns(:track) }
+    it { expect(response).to redirect_to(assigns(:track)) }
   end
 
   describe "#show" do
@@ -26,7 +26,7 @@ describe TracksController do
       get :show, id: FactoryGirl.create(:track).id
     end
 
-    it { response.should be_success }
-    it { response.should render_template(:show) }
+    it { expect(response).to be_success }
+    it { expect(response).to render_template(:show) }
   end
 end
