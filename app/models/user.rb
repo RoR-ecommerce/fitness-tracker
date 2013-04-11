@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates :provider,
     presence: true
 
-  has_many :tracks
+  has_many :tracks, inverse_of: :user
 
   class << self
     def from_omniauth!(auth)

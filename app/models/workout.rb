@@ -1,5 +1,5 @@
 class Workout < ActiveRecord::Base
-  belongs_to :track
+  belongs_to :track, inverse_of: :workouts
   belongs_to :step
 
   validates :emotion, :sweat, :intensity, :track, :step,

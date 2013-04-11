@@ -1,9 +1,9 @@
 class Track < ActiveRecord::Base
   belongs_to :program
-  belongs_to :user
+  belongs_to :user, inverse_of: :tracks
 
-  has_many :workouts, dependent: :destroy
-  has_many :measurements, dependent: :destroy
+  has_many :workouts, inverse_of: :track, dependent: :destroy
+  has_many :measurements, inverse_of: :track, dependent: :destroy
 
   validates :user, :program,
     presence: true

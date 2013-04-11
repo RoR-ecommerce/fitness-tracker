@@ -1,5 +1,5 @@
 class Measurement < ActiveRecord::Base
-  belongs_to :track
+  belongs_to :track, inverse_of: :measurements
   belongs_to :step
 
   validates :arms, :chest, :hips, :thighs, :waist, :weight, :track, :step,
