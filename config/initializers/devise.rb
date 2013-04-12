@@ -216,7 +216,9 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   require 'omniauth-ufc'
 
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+  Kernel.silence_warnings {
+    OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+  } if Rails.env.development?
 
   config.omniauth :ufc, ENV['UFC_CLIENT_ID'], ENV['UFC_CLIENT_SECRET'],
       :client_options => { site: ENV['UFC_OAUTH_SITE'] || "http://localhost:3001",
