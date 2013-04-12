@@ -17,11 +17,22 @@ class User < ActiveRecord::Base
 
   class << self
     def from_omniauth!(auth)
-      where(auth.slice(:provider, :uid)).first_or_create! do |user|
-        user.provider = auth.provider
-        user.uid = auth.uid
-        user.email = auth.info.email
-      end
+      find_with_omniauth(auth) || create_with_omniauth!(auth)
+    end
+
+    private
+
+    def find_with_omniauth(auth)
+      user = where(auth.slice(:provider, :uid)).first
+      user.update_attributes!(email: auth.info.email, name: auth.info.name) if user
+      user
+    end
+
+    def create_with_omniauth!(auth)
+      create!(provider: auth.provider,
+              uid: auth.uid,
+              email: auth.info.email,
+              name: auth.info.name)
     end
   end
 
