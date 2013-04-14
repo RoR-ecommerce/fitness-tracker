@@ -7,12 +7,12 @@ describe 'Login' do
     OmniAuth.config.mock_auth[:ufc] = OmniAuth::AuthHash.new({
       provider: @user.provider,
       uid: @user.uid,
-      info: { email: @user.email }
+      info: { email: @user.email, name: @user.name }
     })
   end
 
   it 'displays home page after successful login' do
-    visit   user_omniauth_authorize_path(:ufc)
+    visit user_omniauth_authorize_path(:ufc)
 
     expect(page).to have_text("Logged in as #{@user.email}")
   end

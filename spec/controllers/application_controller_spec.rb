@@ -6,7 +6,7 @@ describe ApplicationController do
     context "when user logged out" do
       it "should redirect to root url" do
         get :route
-        expect(response).to redirect_to(root_url)
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
 
