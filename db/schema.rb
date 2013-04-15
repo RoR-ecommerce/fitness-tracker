@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415002441) do
+ActiveRecord::Schema.define(:version => 20130415001119) do
 
   create_table "measurements", :force => true do |t|
     t.float    "chest",      :null => false
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20130415002441) do
     t.datetime "updated_at",                 :null => false
     t.string   "provider",                   :null => false
     t.string   "uid",                        :null => false
-    t.string   "first_name",                 :null => false
-    t.string   "last_name",                  :null => false
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
