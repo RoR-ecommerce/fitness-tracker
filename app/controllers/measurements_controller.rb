@@ -19,7 +19,8 @@ class MeasurementsController < ApplicationController
 
   def measurement_params
     params.require(:measurement).permit(
-      :arms, :chest, :hips, :thighs, :waist, :weight, :track, :step
+      :arms, :chest, :hips, :thighs, :waist, :weight, :track, :step,
+      :front_photo_attributes => [:image], :side_photo_attributes => [:image], :back_photo_attributes => [:image]
     )
   end
 end

@@ -1,10 +1,20 @@
 <h1>Enter your measurements and upload photos</h1>
-<%= simple_form_for([@track, @track.next_step], html: {class: 'form-horizontal'}) do |f| %>
+<% measurement = @track.next_step %>
+<%= simple_form_for([@track, measurement], html: {class: 'form-horizontal'}) do |f| %>
   <%= f.input :chest %>
   <%= f.input :arms %>
   <%= f.input :waist %>
   <%= f.input :hips %>
   <%= f.input :thighs %>
   <%= f.input :weight %>
+  <%= f.simple_fields_for :front_photo, FrontPhoto.new do |fp| %>
+    <%= fp.input :image, label: "Front photo" %>
+  <% end %>
+  <%= f.simple_fields_for :side_photo, SidePhoto.new do |sp| %>
+    <%= sp.input :image, label: "Side photo" %>
+  <% end %>
+  <%= f.simple_fields_for :back_photo, BackPhoto.new do |bp| %>
+    <%= bp.input :image, label: "Back photo" %>
+  <% end %>
   <%= f.button :submit %>
 <% end %>

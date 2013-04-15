@@ -16,3 +16,6 @@
 
 # Ignore config files that might be different on developer machines.
 /config/database.yml
+
+# Ignore Paperclip files
+/public/system

@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(:version => 20130415001119) do
   add_index "measurements", ["step_id"], :name => "index_measurements_on_step_id"
   add_index "measurements", ["track_id"], :name => "index_measurements_on_track_id"
 
+  create_table "photos", :force => true do |t|
+    t.string   "type"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "programs", :force => true do |t|
     t.string   "name",       :null => false
     t.datetime "created_at", :null => false

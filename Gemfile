@@ -21,6 +21,7 @@ gem 'newrelic_rpm',         '3.6.0.78'
 
 gem 'simple_form',          '2.1.0'
 gem 'bootstrap-sass',       '2.3.1.0'
+gem 'paperclip',            '3.4.1'
 
 group :development, :test do
   gem 'rspec-rails',        '~> 2.13.0'
