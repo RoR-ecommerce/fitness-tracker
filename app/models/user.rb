@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     format: Devise.email_regexp,
     uniqueness: { case_sensitive: false }
 
-  validates :provider,
+  validates :provider, :first_name, :last_name,
     presence: true
 
   has_many :tracks, inverse_of: :user
@@ -24,20 +24,34 @@ class User < ActiveRecord::Base
 
     def find_with_omniauth(auth)
       user = where(auth.slice(:provider, :uid)).first
+<<<<<<< HEAD
       user.update_attributes!(
         email: auth.info.email,
         first_name: auth.info.first_name,
         last_name: auth.info.last_name) if user
+=======
+      user.update_attributes!(email: auth.info.email,
+                              first_name: auth.info.first_name,
+                              last_name: auth.info.last_name) if user
+>>>>>>> Split user name.
       user
     end
 
     def create_with_omniauth!(auth)
+<<<<<<< HEAD
       create!(
         provider: auth.provider,
         uid: auth.uid,
         email: auth.info.email,
         first_name: auth.info.first_name,
         last_name: auth.info.last_name)
+=======
+      create!(provider: auth.provider,
+              uid: auth.uid,
+              email: auth.info.email,
+              first_name: auth.info.first_name,
+              last_name: auth.info.last_name)
+>>>>>>> Split user name.
     end
   end
 
