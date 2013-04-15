@@ -7,7 +7,11 @@ describe 'Login' do
     OmniAuth.config.mock_auth[:ufc] = OmniAuth::AuthHash.new({
       provider: @user.provider,
       uid: @user.uid,
-      info: { email: @user.email, name: @user.name }
+      info: {
+        email: @user.email,
+        first_name: @user.first_name,
+        last_name: @user.last_name
+      }
     })
   end
 

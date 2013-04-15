@@ -45,16 +45,29 @@ describe User do
     let(:auth) { OmniAuth::AuthHash.new({
                    provider: user.provider,
                    uid: user.uid,
-                   info: { email: user.email, name: user.name } }) }
+                   info: {
+                     email: user.email,
+                     first_name: user.first_name,
+                     last_name: user.last_name
+                   } }) }
 
     let(:auth2) { OmniAuth::AuthHash.new({
                    provider: @existent_user.provider,
                    uid: @existent_user.uid,
-                   info: { email: @existent_user.email, name: @existent_user.name } }) }
+                   info: {
+                     email: @existent_user.email,
+                     first_name: @existent_user.first_name,
+                     last_name: @existent_user.last_name
+                   } }) }
+
     let(:auth3) { OmniAuth::AuthHash.new({
                     provider: @existent_user.provider,
                     uid: @existent_user.uid,
-                    info: { email: 'fooo@bar.com', name: 'John Doe'}
+                    info: {
+                      email: 'fooo@bar.com',
+                      first_name: 'John',
+                      last_name: 'Doe'
+                    }
     })}
 
     it { expect { User.from_omniauth!(auth) }.to change { User.count }.by(1) }
