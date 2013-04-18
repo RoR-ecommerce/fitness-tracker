@@ -1,6 +1,6 @@
 GIT
   remote: https://c7acc59ab24cd118fb6295255ce7806b61fb1ca4:x-oauth-basic@github.com/RoR-ecommerce/ufc-omniauth.git
-  revision: 77adb6e595794770fce4729e998b98f4e862f0b4
+  revision: 31b726e6b340e66f3b0317db4c9863cf1ff90d26
   specs:
     omniauth-ufc (0.0.1)
       omniauth (~> 1.1)
